@@ -1,0 +1,16 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka,http://localhost:7002/eureka
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    com.ochaly.springcloud.service.PaymentFeignService: debug
