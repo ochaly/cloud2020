@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 /**
  * @Author: ouchonghui
  * @Description:
- * @Date: creat in 2020/8/11 17:18
+ * @Date: create in 2020/8/11 17:18
  */
 @SpringBootApplication
 @EnableEurekaClient
