@@ -20,6 +20,14 @@ spring:
           uri: lb://cloud-payment-service # 匹配后提供服的路由地址
           predicates:
             - Path=/payment/lb/** # 断言，路径匹配的进行路由
+            - After=2020-08-16T09:15:56.741+08:00[Asia/Shanghai]
+            #- Before=2020-08-20T09:15:56.741+08:00[Asia/Shanghai]
+            #- Between=2020-08-16T09:15:56.741+08:00[Asia/Shanghai],2020-08-20T09:15:56.741+08:00[Asia/Shanghai]
+            - Cookie=username,zzyy # 必须有cookie，且cookie中必须有username的属性，值为zzyy
+            - Header=X-Request-Id, \d+ # 请求头要有X-Request-Id属性，并且值为正整数的正则表达式
+            - Host=**.ochaly.com # 必须有host，且域名必须为ochaly.com
+            - Method=GET # 请求方法必须为get
+            - Query=username, \d+ # 要有参数名username并且值还是整数才能路由
 
 eureka:
   instance:
