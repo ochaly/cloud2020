@@ -1,0 +1,18 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ochaly/spring-cloud-config.git # github上的git仓库名字
+          search-paths:
+            - spring-cloud-config # 搜索目录
+        default-label: master # 读取分支
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
