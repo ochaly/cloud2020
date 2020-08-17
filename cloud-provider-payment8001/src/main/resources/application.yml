@@ -4,22 +4,28 @@ server:
 spring:
   application:
     name: cloud-payment-service
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      # 采样率值介于 0 到 1 之间。1则表示全部采集
+      probability: 1
   datasource:
     # 当前数据源操作类型
     type: com.alibaba.druid.pool.DruidDataSource
     # mysql驱动类
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db2020?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/db2020?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: LIyv9811
+    password: root
 
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      # defaultZone: http://localhost:7001/eureka
-      defaultZone: http://127.0.0.1:7001/eureka,http://localhost:7002/eureka
+       defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://127.0.0.1:7001/eureka,http://localhost:7002/eureka
   instance:
     instance-id: payment8001
     prefer-ip-address: true #访问路径可以显示ip

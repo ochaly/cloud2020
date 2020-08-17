@@ -50,4 +50,9 @@ public class OrderController {
         return restTemplate.getForObject(serviceInstance.getUri() + "/apyment/lb", String.class);
     }
 
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin() {
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
+    }
+
 }
